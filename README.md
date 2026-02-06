@@ -141,4 +141,4 @@ This ensures that player progress is preserved between sessions.
 
 ## 📄 Author
 
-Developed as part of a team-based university project.
+Sina
