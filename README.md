@@ -141,4 +141,6 @@ This ensures that player progress is preserved between sessions.
 
 ## 📄 Author
 
-Sina
+Sina🍷
+
+Feel free to leave a comment! 
