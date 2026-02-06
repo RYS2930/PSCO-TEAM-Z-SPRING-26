@@ -17,6 +17,7 @@ public class DiceBattle {
         System.out.println("\n=== Dice Battle ===");
 
         while (player.isAlive() && computer.isAlive()) {
+
             System.out.println("\nPlayer HP: " + player.getHp()
                     + " | Computer HP: " + computer.getHp());
 
@@ -34,7 +35,6 @@ public class DiceBattle {
     }
 
     private void playerTurn() {
-        player.setDefending(false);
         System.out.println("\nYour turn:");
         System.out.println("1. Attack");
         System.out.println("2. Defend");
@@ -50,15 +50,16 @@ public class DiceBattle {
 
         int diceCount = rand.nextInt(3) + 1;
         int damage = rollDice(diceCount);
+
         System.out.println("You rolled " + diceCount + " dice.");
         applyDamage(computer, damage);
     }
 
     private void computerTurn() {
-        computer.setDefending(false);
         System.out.println("\nComputer's turn:");
 
-        if (computer.getHp() <= 6) {
+        // Low HP → 50% chance to defend
+        if (computer.getHp() <= 6 && rand.nextBoolean()) {
             computer.setDefending(true);
             System.out.println("Computer chooses to defend.");
             return;
@@ -66,6 +67,7 @@ public class DiceBattle {
 
         int diceCount = rand.nextInt(3) + 1;
         int damage = rollDice(diceCount);
+
         System.out.println("Computer attacks with " + diceCount + " dice.");
         applyDamage(player, damage);
     }
@@ -73,17 +75,19 @@ public class DiceBattle {
     private int rollDice(int count) {
         int sum = 0;
         for (int i = 0; i < count; i++) {
-            int roll = rand.nextInt(6) + 1;
-            sum += roll;
+            sum += rand.nextInt(6) + 1;
         }
         return sum;
     }
 
     private void applyDamage(Player target, int damage) {
+
         if (target.isDefending()) {
             damage /= 2;
+            target.setDefending(false); // 🔥 defend only lasts once
             System.out.println("Defence activated! Damage reduced.");
         }
+
         target.takeDamage(damage);
         System.out.println("Damage dealt: " + damage);
     }
