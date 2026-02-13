@@ -10,7 +10,7 @@ public class Menu {
             System.out.println("2. Dice Grid Puzzle");
             System.out.println("3. Dice Codebreaker");
             System.out.println("4. Dice Battle");
-            System.out.println("0. Exit");
+            System.out.println("5. Exit");
             System.out.print("Choose: ");
 
             int choice = sc.nextInt();
@@ -20,7 +20,7 @@ public class Menu {
                 case 2 -> new DiceGridGame().play();
                 case 3 -> new DiceCodebreakerGame().play();
                 case 4 -> new DiceBattle().play();
-                case 0 -> {
+                case 5 -> {
                     System.out.println("Bye!");
                     return;
                 }
