@@ -15,6 +15,10 @@ public class DicePatternGame {
 
             System.out.print("Enter indices to reroll (0-4), separated by space, end with -1: ");
             while (true) {
+                if (!sc.hasNextInt()) {
+                    sc.next();
+                    continue;
+                }
                 int idx = sc.nextInt();
                 if (idx == -1) break;
                 if (idx >= 0 && idx < 5) dice[idx] = rollDie();
