@@ -15,10 +15,6 @@ public class DicePatternGame {
 
             System.out.print("Enter indices to reroll (0-4), separated by space, end with -1: ");
             while (true) {
-                if (!sc.hasNextInt()) {
-                    sc.next();
-                    continue;
-                }
                 int idx = sc.nextInt();
                 if (idx == -1) break;
                 if (idx >= 0 && idx < 5) dice[idx] = rollDie();
@@ -38,7 +34,7 @@ public class DicePatternGame {
         return rand.nextInt(6) + 1;
     }
 
-    private int calculateScore() {
+    public int calculateScore() {
         Map<Integer, Integer> freq = new HashMap<>();
         for (int d : dice) freq.put(d, freq.getOrDefault(d, 0) + 1);
 
