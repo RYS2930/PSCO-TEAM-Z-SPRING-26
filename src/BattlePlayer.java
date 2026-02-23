@@ -1,4 +1,4 @@
-public class Player {
+public class BattlePlayer {
 
     private int hp;
     private boolean defending;
