@@ -271,6 +271,4 @@ This ensures that player progress is preserved between sessions.
 
 ## 📄 Author
 
-Sina🍷
-
-Feel free to leave a comment! 
+Sina, Harvey, Ege, Thai Son
