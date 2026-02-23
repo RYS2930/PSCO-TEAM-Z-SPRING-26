@@ -3,7 +3,7 @@ public class BattlePlayer {
     private int hp;
     private boolean defending;
 
-    public Player(int hp) {
+    public BattlePlayer(int hp) {
         this.hp = hp;
         this.defending = false;
     }
@@ -24,10 +24,17 @@ public class BattlePlayer {
         this.defending = defending;
     }
 
-    public void takeDamage(int damage) {
-        hp -= damage;
-        if (hp < 0) {
-            hp = 0;
-        }
+    public void clearDefend() {
+        defending = false;
+    }
+
+    public void takeDamage(int dmg) {
+        hp -= dmg;
+        if (hp < 0) hp = 0;
+    }
+
+    public void heal(int amount) {
+        hp += amount;
     }
 }
+
