@@ -31,7 +31,7 @@ public class DiceGridGame {
         return rand.nextInt(6) + 1;
     }
 
-    private int calculateScore() {
+    public int calculateScore() {
         int score = 0;
         for (int i = 0; i < 3; i++) {
             score += scoreLine(grid[i]);

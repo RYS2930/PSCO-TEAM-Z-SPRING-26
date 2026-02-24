@@ -37,13 +37,13 @@ public class Menu {
                 case 3 -> {
                     DiceCodebreakerGame g = new DiceCodebreakerGame();
                     g.play();
-                    user.updateCodebreakerScore(10); // başarıya göre sabit skor
+                    user.updateCodebreakerScore(10);
                     user.incrementGamesPlayed();
                 }
                 case 4 -> {
                     DiceBattle g = new DiceBattle();
                     g.play();
-                    user.updateBattleScore(20); // kazanma bazlı skor
+                    user.updateBattleScore(20);
                     user.incrementGamesPlayed();
                 }
                 case 5 -> System.out.println(user);
