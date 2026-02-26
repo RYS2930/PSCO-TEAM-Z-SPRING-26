@@ -11,8 +11,11 @@ public class DiceCodebreakerGame {
 
         while (attempts-- > 0) {
             int[] guess = new int[4];
+
             System.out.print("Enter 4 numbers (1-6): ");
-            for (int i = 0; i < 4; i++) guess[i] = sc.nextInt();
+            for (int i = 0; i < 4; i++) {
+                guess[i] = readIntInRange(1, 6);
+            }
 
             int correctPos = 0, correctNum = 0;
             boolean[] usedSecret = new boolean[4];
@@ -47,8 +50,26 @@ public class DiceCodebreakerGame {
         System.out.println("Game over. Secret was: " + Arrays.toString(secret));
     }
 
+    private int readIntInRange(int min, int max) {
+        while (true) {
+            if (!sc.hasNextInt()) {
+                System.out.print("Invalid input. Please enter a number (" + min + "-" + max + "): ");
+                sc.next(); 
+                continue;
+            }
+
+            int x = sc.nextInt();
+            if (x < min || x > max) {
+                System.out.print("Out of range! Enter a number (" + min + "-" + max + "): ");
+                continue;
+            }
+            return x;
+        }
+    }
+
     private void generateCode() {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             secret[i] = rand.nextInt(6) + 1;
+        }
     }
 }
