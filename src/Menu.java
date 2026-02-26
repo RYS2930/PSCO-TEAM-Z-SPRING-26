@@ -28,7 +28,7 @@ public class Menu {
                     user.incrementGamesPlayed();
                 }
                 case 2 -> {
-                    DiceGridGame g = new DiceGridGame(); 
+                    DiceGridGame g = new DiceGridGame(sc); 
                     g.play();
                     user.updateGridScore(g.calculateScore());
                     user.incrementGamesPlayed();
