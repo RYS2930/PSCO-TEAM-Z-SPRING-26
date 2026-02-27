@@ -22,13 +22,13 @@ public class Menu {
 
             switch (choice) {
                 case 1 -> {
-                    DicePatternGame g = new DicePatternGame(sc); 
+                    DicePatternGame g = new DicePatternGame(); 
                     g.play();
                     user.updatePatternScore(g.calculateScore());
                     user.incrementGamesPlayed();
                 }
                 case 2 -> {
-                    DiceGridGame g = new DiceGridGame(sc); 
+                    DiceGridGame g = new DiceGridGame(); 
                     g.play();
                     user.updateGridScore(g.calculateScore());
                     user.incrementGamesPlayed();
