@@ -49,7 +49,14 @@ public class Menu {
                 case 0 -> {
                     UserManager.saveUser(user);
                     System.out.println("Bye!");
-                    return;
+                    System.out.println("================");
+                    System.out.print("Enter username (Quit the game, type -1): ");
+                    username = sc.nextLine();
+                    if (username.equals("-1")) {
+                        System.out.println("Good Bye!");
+                        return;
+                    }
+                    user = UserManager.loadOrCreateUser(username);
                 }
             }
 
