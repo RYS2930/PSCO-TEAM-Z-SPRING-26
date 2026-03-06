@@ -51,6 +51,7 @@ public class Menu {
                     System.out.println("Bye!");
                     System.out.println("================");
                     System.out.print("Enter username (Quit the game, type -1): ");
+                    sc.nextLine();
                     username = sc.nextLine();
                     if (username.equals("-1")) {
                         System.out.println("Good Bye!");
