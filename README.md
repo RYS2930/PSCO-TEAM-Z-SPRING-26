@@ -251,18 +251,10 @@ This ensures that player progress is preserved between sessions.
 
 ---
 
-## ▶️ How to Run [Text-based User Interface (TUI)]
+## ▶️ How to Run
 
 1. Compile all `.java` files.
 2. Run `Menu.java`.
-3. Select a game from the menu.
-
----
-
-## ▶️ How to Run [Graphical User Interface (GUI)]
-
-1. Compile all `.java` files.
-2. Run
 3. Select a game from the menu.
 
 ---
