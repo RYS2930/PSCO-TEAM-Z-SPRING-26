@@ -33,7 +33,7 @@ public class DiceBattle {
                 System.out.println("You attack with " + Arrays.toString(rolls));
                 if (isCritical(rolls)) {
                     playerAttack *= 2;
-                    System.out.println("🔥 Critical hit!");
+                    System.out.println("Critical hit!");
                 }
             }
 
@@ -44,7 +44,7 @@ public class DiceBattle {
                 System.out.println("Computer attacks with " + Arrays.toString(rolls));
                 if (isCritical(rolls)) {
                     computerAttack *= 2;
-                    System.out.println("🔥 Computer critical hit!");
+                    System.out.println("Computer critical hit!");
                 }
             }
 
