@@ -1,10 +1,9 @@
 # Dice Game Project (Java)
 
-This project is a Java console-based dice game application
+This project is a Java console-based application featuring four dice-based games.
 
-The application consists of four dice-based mini-games designed to practise core
-programming concepts such as control flow, data structures, algorithms, and
-object-oriented design.
+The projects was developed collabratively using GitHub Codespaces and Git, with a focus on object-oriented 
+programming, game logic, input validation, persistent player statistics, and teamwork.
 
 ---
 ## Main Menu Game
