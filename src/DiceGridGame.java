@@ -3,16 +3,9 @@ import java.util.*;
 public class DiceGridGame {
     private int[][] grid = new int[3][3];
     private Random rand = new Random();
-    private Scanner sc;
-
+    private Scanner sc = new Scanner(System.in);
 
     public DiceGridGame() {
-        this(new Scanner(System.in));
-    }
-
-    
-    public DiceGridGame(Scanner sc) {
-        this.sc = sc;
     }
 
     public void play() {

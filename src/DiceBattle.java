@@ -12,7 +12,7 @@ public class DiceBattle {
         computer = new BattlePlayer(20);
     }
 
-    public void play() {
+    public BattleResult play() {
         System.out.println("\n=== Dice Battle ===");
 
         while (player.isAlive() && computer.isAlive()) {
@@ -73,24 +73,32 @@ public class DiceBattle {
                 System.out.println("Computer defends this round.");
             }
 
+            // Player attacks first (player attack + computer attack: damage computer before player).
+            // Player attack + computer defend: damage halved.
             if (playerAttack > 0) {
-                int dmg = playerAttack;
-                if (computer.isDefending()) {
-                    dmg /= 2;
-                    System.out.println("Computer reduces damage by half!");
+                if (computerAction == Action.DEFEND) {
+                    int dmg = playerAttack / 2;
+                    computer.takeDamage(dmg);
+                    System.out.println("Computer defends — damage halved. Computer takes " + dmg + " damage.");
+                } else {
+                    computer.takeDamage(playerAttack);
+                    System.out.println("Computer takes " + playerAttack + " damage.");
                 }
-                computer.takeDamage(dmg);
-                System.out.println("Computer takes " + dmg + " damage.");
             }
 
+            // Computer attacks only if still alive (user has priority on simultaneous attacks).
             if (computerAttack > 0) {
-                int dmg = computerAttack;
-                if (player.isDefending()) {
-                    dmg /= 2;
-                    System.out.println("You reduce damage by half!");
+                if (!computer.isAlive()) {
+                    System.out.println("Computer is defeated and cannot attack!");
+                } else {
+                    int dmg = computerAttack;
+                    if (player.isDefending()) {
+                        dmg /= 2;
+                        System.out.println("You defend — damage is halved!");
+                    }
+                    player.takeDamage(dmg);
+                    System.out.println("You take " + dmg + " damage.");
                 }
-                player.takeDamage(dmg);
-                System.out.println("You take " + dmg + " damage.");
             }
 
             player.heal(playerHeal);
@@ -100,9 +108,11 @@ public class DiceBattle {
             computer.clearDefend();
         }
 
-        System.out.println(player.isAlive()
+        boolean playerWon = player.isAlive();
+        System.out.println(playerWon
                 ? "You win the battle!"
                 : "You lost the battle!");
+        return new BattleResult(player.getHp(), computer.getHp(), playerWon);
     }
 
 
@@ -156,4 +166,6 @@ public class DiceBattle {
     enum Action {
         ATTACK, DEFEND, HEAL
     }
+
+    public record BattleResult(int playerScore, int computerScore, boolean playerWon) {}
 }

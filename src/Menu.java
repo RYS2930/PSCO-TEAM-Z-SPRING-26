@@ -34,18 +34,18 @@ public class Menu {
                     user.incrementGamesPlayed();
                 }
                 case 3 -> {
-                    DiceCodebreakerGame g = new DiceCodebreakerGame(); 
-                    g.play();
-                    user.updateCodebreakerScore(10);
+                    DiceCodebreakerGame g = new DiceCodebreakerGame(sc);
+                    DiceCodebreakerGame.CodebreakerResult r = g.play();
+                    user.updateCodebreaker(r.won() ? r.guessesUsed() : -1);
                     user.incrementGamesPlayed();
                 }
                 case 4 -> {
                     DiceBattle g = new DiceBattle();
-                    g.play();
-                    user.updateBattleScore(20);
+                    DiceBattle.BattleResult result = g.play();
+                    user.updateBattleResult(result.playerWon(), result.playerScore(), result.computerScore());
                     user.incrementGamesPlayed();
                 }
-                case 5 -> System.out.println(user);
+                case 5 -> viewStatsMenu(sc, user);
                 case 0 -> {
                     UserManager.saveUser(user);
                     System.out.println("Bye!");
@@ -63,6 +63,48 @@ public class Menu {
 
             UserManager.saveUser(user);
         }
+    }
+
+    private static void viewStatsMenu(Scanner sc, UserProfile user) {
+        while (true) {
+            System.out.println("\n=== View Player Stats ===");
+            System.out.println("1. Dice Pattern");
+            System.out.println("2. Dice Grid");
+            System.out.println("3. Dice Codebreaker");
+            System.out.println("4. Dice Battle");
+            System.out.println("0. Back");
+            System.out.print("Choose: ");
+
+            int choice = readIntInRange(sc, 0, 4);
+            switch (choice) {
+                case 1 -> {
+                    System.out.println(user.getPatternStats());
+                    pauseAfterViewingStats(sc);
+                }
+                case 2 -> {
+                    System.out.println(user.getGridStats());
+                    pauseAfterViewingStats(sc);
+                }
+                case 3 -> {
+                    System.out.println(user.getCodebreakerStats());
+                    pauseAfterViewingStats(sc);
+                }
+                case 4 -> {
+                    System.out.println(user.getBattleStats());
+                    pauseAfterViewingStats(sc);
+                }
+                case 0 -> {
+                    return;
+                }
+            }
+        }
+    }
+
+    /** Lets the player read the stats; press Enter to return to the stats submenu. */
+    private static void pauseAfterViewingStats(Scanner sc) {
+        sc.nextLine(); // newline left after readIntInRange
+        System.out.print("\nPress Enter to return to stats menu... ");
+        sc.nextLine();
     }
 
     

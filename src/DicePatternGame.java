@@ -3,16 +3,9 @@ import java.util.*;
 public class DicePatternGame {
     private final int[] dice = new int[5];
     private final Random rand = new Random();
-    private final Scanner sc;
+    private final Scanner sc = new Scanner(System.in);
 
-    
     public DicePatternGame() {
-        this(new Scanner(System.in));
-    }
-
-    
-    public DicePatternGame(Scanner sc) {
-        this.sc = sc;
     }
 
     public void play() {
