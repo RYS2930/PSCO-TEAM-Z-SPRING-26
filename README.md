@@ -1,277 +1,309 @@
-# Dice Game Project (Java)
+# 🎲 Dice Game Project (Java)
 
-This project is a Java console-based application featuring four dice-based games.
+A Java console-based mini game system that includes **four dice games**, **persistent player profiles**, and **statistics tracking**.
 
-The projects was developed collabratively using GitHub Codespaces and Git, with a focus on object-oriented 
-programming, game logic, input validation, persistent player statistics, and teamwork.
+This project was developed using **Java**, **Git**, and **GitHub**, with a focus on:
+
+* Object-oriented programming
+* Input validation
+* Random game logic
+* File handling
+* Reusable class design
 
 ---
-## Main Menu Game
-When the program starts, the player is asked to enter a username. The system then loads
-an existing profile or creates a new one.
-After that, the main menu is displayed: 
-        
-   === Dice Game Menu ===
+
+## 📌 Project Overview
+
+When the program starts, the player enters a **username**. The system then either:
+
+* loads an existing profile, or
+* creates a new one.
+
+After login, the main menu is displayed.
+
+### Main Menu
+
+```text
+=== Dice Game Menu ===
 1. Dice Patterns Challenge
 2. Dice Grid Puzzle
 3. Dice Codebreaker
 4. Dice Battle
 5. View Player Stats
 0. Exit
+```
 
-How the Menu Works
-The user enters a number from 0 to 5.
-Options 1–4 launch one of the four games.
-Option 5 opens the player statistics menu.
-Option 0 saves the current user data.
-After exiting, the program allows another username to log in, or the user can type -1 to quit the program completely.
-This means the system supports multiple players using separate saved profiles.
+### Menu Behaviour
+
+* **1–4** → Start one of the four games
+* **5** → Open the player statistics menu
+* **0** → Save user data and exit the current session
+* After exiting, another player can log in, or the user can type **-1** to fully close the program
+
+This means the system supports **multiple players with separate saved profiles**.
 
 ---
 
 ## 🎮 Games Included
 
-### 1. Dice Patterns Challenge
-A pattern-based dice scoring game where the player rolls five dice and may reroll
-selected dice to achieve the best final pattern.
-
-### 2. Dice Grid Puzzle
-Players place dice rolls into a 3×3 grid and score points based on combinations formed
-in rows and columns.
-
-### 3. Dice Codebreaker
-A logic-based guessing game where players attempt to crack a secret four-dice code.
-Feedback is provided after each guess to guide the player.
-
-### 4. Dice Battle (Round-Based Combat)
-A round-based dice combat game where the player battles a computer-controlled opponent
-using attack, defend, and heal actions.
+| No. | Game                        | Description                                               |
+| --- | --------------------------- | --------------------------------------------------------- |
+| 1   | **Dice Patterns Challenge** | Roll and reroll dice to create the best scoring pattern   |
+| 2   | **Dice Grid Puzzle**        | Place dice into a 3×3 grid and score rows and columns     |
+| 3   | **Dice Codebreaker**        | Guess a secret 4-number code within limited attempts      |
+| 4   | **Dice Battle**             | Fight the computer using attack, defend, and heal actions |
 
 ---
 
-## 🎲 Dice Patterns Challenge – Game Rules
+## 1️⃣ Dice Patterns Challenge
 
-**Game Type:** Pattern-based dice scoring with rerolls  
-**Victory Condition:** Maximise score from five dice after up to two rerolls  
+### Objective
 
-### Starting Conditions
-- The system rolls 5 dice (values 1–6).
-- The initial roll is displayed.
+Get the **highest possible score** by building the best pattern from **five dice**.
 
----
+### How It Works
 
-### Round Structure
-1. **Initial Roll**  
-   Five dice are rolled and shown.
+* The game starts by rolling **5 dice**
+* The player may reroll up to **2 times**
+* In each reroll round, the player chooses which dice indices to reroll
+* Valid dice indices are **0 to 4**
+* Input ends with **-1**
+* The final pattern is scored automatically
 
-2. **Reroll Phase (up to 2 times)**  
-   - The player is asked: `Re-roll? (y/n)`
-   - If `y`, the player enters dice indices to reroll (`0–4`), ending input with `-1`.
-   - Only selected dice are rerolled and the current dice are displayed.
+### Scoring Rules
 
-3. **Scoring**  
-   The final dice are scored using the highest-ranking valid pattern.
+| Pattern               | Score |
+| --------------------- | ----: |
+| Five of a Kind        |    50 |
+| Four of a Kind        |    40 |
+| Full House            |    35 |
+| Straight (1–5 or 2–6) |    30 |
+| Three of a Kind       |    25 |
+| Two Pairs             |    20 |
+| One Pair              |    10 |
+| No Pattern            |     0 |
 
----
+### Validation Features
 
-### Scoring System
-- Five of a Kind → **50**
-- Four of a Kind → **40**
-- Full House (3 + 2) → **35**
-- Straight (1–5 or 2–6) → **30**
-- Three of a Kind → **25**
-- Two Pairs → **20**
-- One Pair → **10**
-- No Pattern → **0**
-
----
-
-## 🎲 Dice Grid Puzzle – Game Rules
-
-**Game Type:** Grid-based placement puzzle  
-**Victory Condition:** Achieve the highest total score after 9 turns  
-
-### Starting Conditions
-- A 3×3 grid starts empty.
-- The game lasts 9 turns.
-- Each turn rolls one die (1–6).
+* Prevents invalid reroll input
+* Prevents out-of-range indices
+* Prevents rerolling the same die twice in one round
 
 ---
 
-### Round Structure
-1. The system rolls a die.  
-2. The grid is displayed.  
-3. The player enters `row col (0–2)` to place the value.  
-   - The cell must be empty.  
+## 2️⃣ Dice Grid Puzzle
+
+### Objective
+
+Fill a **3×3 grid** and earn the highest total score from all rows and columns.
+
+### How It Works
+
+* The game lasts **9 turns**
+* Each turn rolls **1 die**
+* The player chooses a position using **row** and **column** values
+* Valid coordinates are **0 to 2**
+* The selected cell must be empty
+* After all 9 turns, the game scores all **3 rows** and **3 columns**
+
+### Line Scoring Rules
+
+| Result                           | Score |
+| -------------------------------- | ----: |
+| Three of a kind                  |    15 |
+| Straight (3 consecutive numbers) |    12 |
+| One pair                         |     8 |
+| No match                         |     5 |
+
+### Validation Features
+
+* Rejects non-numeric input
+* Rejects coordinates outside **0–2**
+* Rejects already occupied cells
 
 ---
 
-### Scoring System
-After the grid is full, all 3 rows and 3 columns are scored:
+## 3️⃣ Dice Codebreaker
 
-- Three of a kind → **15 points**  
-- Straight (consecutive numbers) → **12 points**  
-- One pair → **8 points**  
-- No match → **5 points**
+### Objective
 
----
+Guess the hidden **4-number code** in at most **10 attempts**.
+
+### How It Works
+
+* The system generates a secret code of **4 numbers**
+* Each number is between **1 and 6**
+* Duplicate numbers are allowed
+* After each guess, feedback is shown:
+
+  * **Correct position** = correct number in the correct place
+  * **Correct number (wrong position)** = correct number but in the wrong place
+* Each number can only be matched once during feedback calculation
+
+### Accepted Input Formats
+
+```text
+2334
+2 3 3 4
+```
 
 ### End Conditions
-- The final grid is displayed.
-- The total score is printed.
+
+* The player wins by getting **4 correct positions**
+* The player loses after **10 unsuccessful attempts**
+* If the player loses, the secret code is displayed
 
 ---
 
+## 4️⃣ Dice Battle
 
-## 🎲 Dice Codebreaker – Game Rules
+### Objective
 
-**Game Type:** Logic-based deduction game  
-**Victory Condition:** Guess the secret four-dice code within 10 attempts  
+Defeat the computer by reducing its HP to **0** before your own HP reaches **0**.
 
 ### Starting Conditions
-- A hidden 4-number code is generated (values 1–6).
-- Duplicate numbers are allowed.
-- The player has 10 attempts.
 
----
-
-### Round Structure
-Each guess follows three steps:
-
-1. **Guess Input**  
-   The player enters four numbers.
-
-2. **Position Check**  
-   Numbers that match both value and position are counted as  
-   **Correct position**.
-
-3. **Number Check**  
-   Remaining matching numbers in different positions are counted as  
-   **Correct number (wrong position)**.
-
-Each number can only be matched once.
-
----
-
-### End Conditions
-- The player wins if all 4 positions are correct.
-- The player loses after 10 unsuccessful attempts.
-- The secret code is revealed if the player fails.
-
-
----
-
-## 🎲 Dice Battle – Game Rules
-
-**Game Type:** Round-based dice combat  
-**Victory Condition:** Opponent HP reaches zero or below  
-
-### Starting Conditions
-- Player HP: 20  
-- Computer HP: 20  
-
----
-
-### Round Structure
-Each round is resolved in three phases:
-
-1. **Action Selection**  
-   Both the player and the computer choose an action:
-   - Attack
-   - Defend
-   - Heal
-
-2. **Dice Rolling**  
-   Dice are rolled based on the selected actions.
-
-3. **Resolution**  
-   Damage reduction, healing, and HP updates are applied simultaneously.
-
----
+* **Player HP = 20**
+* **Computer HP = 20**
 
 ### Available Actions
 
 #### Attack
-- Roll 1–3 dice.
-- Damage equals the total of the dice.
-- Rolling all sixes triggers a critical hit, doubling the damage.
+
+* Rolls **1 to 3 dice**
+* Damage = total of the dice
+* If all rolled dice are **6**, the attack becomes a **critical hit** and the damage is doubled
 
 #### Defend
-- Applies immediately within the same round.
-- All incoming damage during that round is reduced by 50%.
-- Defend mitigates damage but does not prevent it.
+
+* Reduces incoming damage by **50%** for that round
 
 #### Heal
-- Roll exactly 2 dice.
-- Restore HP equal to the total of the dice.
+
+* Rolls exactly **2 dice**
+* Restores HP equal to the total rolled
+
+### Turn Resolution
+
+* Both sides choose an action each round
+* The player’s attack is resolved first
+* If the computer is defeated immediately, it cannot attack back in that round
+* Healing is applied after attack resolution
+* Defend status is cleared at the end of the round
+
+### Computer Behaviour
+
+The computer uses simple logic:
+
+* more likely to **heal** when HP is low
+* may **defend** when under pressure
+* otherwise, it usually **attacks**
 
 ---
 
-### Computer AI Behaviour
-- Prioritises healing when HP is critically low.
-- Uses defensive actions probabilistically to reduce predictability.
-- Attacks by default to maintain consistent combat flow.
+## 👤 Player Profiles and Statistics
+
+The system includes a **persistent profile feature**.
+
+### Username System
+
+* At startup, the player enters a username
+* Existing usernames are loaded from storage
+* New usernames create a new profile
+
+### Stored Data
+
+Each player profile keeps track of:
+
+* Username
+* Total games played
+* Highest and latest score in **Dice Patterns Challenge**
+* Highest and latest score in **Dice Grid Puzzle**
+* Best and latest result in **Dice Codebreaker**
+* Wins and losses in **Dice Battle**
+* Last played date and time
+* Recent history for each game (**up to 10 entries**)
+
+### Data Storage
+
+* Data is saved in **`users.txt`**
+* Player information is updated after gameplay and on exit
 
 ---
 
-## 👤 Player Data and Statistics
+## 📊 View Player Stats Menu
 
-- Players are identified using a unique username.
-- Player data is stored persistently in a text file.
-- The system tracks the following information:
-  - Total number of games played
-  - Highest score achieved in each game
-  - Most recent score for each game
-  - Date and time of the last gameplay session
+```text
+=== View Player Stats ===
+1. Dice Pattern
+2. Dice Grid
+3. Dice Codebreaker
+4. Dice Battle
+0. Back
+```
 
-This ensures that player progress is preserved between sessions.
+### What the Player Can View
 
----
+* **Dice Pattern** → highest score, latest score, recent 10 scores
+* **Dice Grid** → highest score, latest score, recent 10 scores
+* **Dice Codebreaker** → best result, latest result, recent 10 outcomes
+* **Dice Battle** → wins, losses, recent 10 battle records
 
-## 🧭 User Interface
-
-- The application uses a **menu-driven console interface**.
-- Players can select which dice game to play from the main menu.
-
----
-
-## 🛠 Technical Features
-
-- Written entirely in Java
-- Modular class-based design
-- Menu-driven console interface
-- Round-based combat resolution for fairness and clarity
-- Persistent data storage using text files
+This feature makes the project more complete because it tracks progress over time instead of only running games once.
 
 ---
 
-## 🔧 Development Workflow
+## 🧩 Main Classes
 
-- The project was developed collaboratively using **Git** for version control.
-- **GitHub** was used to manage the shared repository.
-- **GitHub Codespaces** provided a consistent development environment for all team members.
-- Regular commits and code reviews were used throughout development.
-
----
-
-## ▶️ How to Run
-
-1. Compile all `.java` files.
-2. Run `Menu.java`.
-3. Select a game from the menu.
+| Class                      | Purpose                                                        |
+| -------------------------- | -------------------------------------------------------------- |
+| `Menu.java`                | Handles login, menu navigation, stats menu, and game launching |
+| `DicePatternGame.java`     | Contains the logic for Dice Patterns Challenge                 |
+| `DiceGridGame.java`        | Contains the logic for Dice Grid Puzzle                        |
+| `DiceCodebreakerGame.java` | Contains the logic for Dice Codebreaker                        |
+| `DiceBattle.java`          | Contains the battle game logic                                 |
+| `BattlePlayer.java`        | Represents a battle participant with HP and defend status      |
+| `UserProfile.java`         | Stores player statistics and game history                      |
+| `UserManager.java`         | Loads and saves player profiles using file storage             |
 
 ---
 
-## 📌 Learning Outcomes
+## 💡 Key Programming Features
 
-- Designed and implemented multiple dice-based games
-- Applied object-oriented programming principles
-- Improved understanding of game logic and timing
-- Practised debugging, testing, and iterative refinement
-- Gained experience using Git in a collaborative project
+This project demonstrates:
+
+* object-oriented programming
+* menu-driven console interaction
+* reusable classes and methods
+* random number generation
+* input validation
+* arrays and collections
+* simple AI behaviour
+* file handling and persistence
 
 ---
 
-## 📄 Author
+## ▶️ How to Run the Program
+
+1. Open the project in **IntelliJ IDEA** or another Java IDE
+2. Make sure all source files are in the **`src`** folder
+3. Run **`Menu.java`**
+4. Enter a username
+5. Choose a game or view player statistics
+
+---
+
+## ✅ Conclusion
+
+This Dice Game Project is a **multi-game Java console application** with:
+
+* four playable mini games
+* multiple user profiles
+* persistent saved data
+* statistics tracking across sessions
+
+Compared with a basic game menu, this version is more complete because it supports **player progress**, **history tracking**, and **data storage between runs**.
+
+Overall, the project demonstrates practical use of Java programming concepts such as **classes**, **methods**, **validation**, **random generation**, and **file handling**.
 
 Sina, Harvey, Ege, Thai Son
