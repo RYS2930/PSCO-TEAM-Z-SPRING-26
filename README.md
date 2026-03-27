@@ -1,4 +1,4 @@
-# 🎲 Dice Game Project (Java)
+#  Dice Game Project (Java)
 
 A Java console-based mini game system that includes **four dice games**, **persistent player profiles**, and **statistics tracking**.
 
@@ -12,7 +12,7 @@ This project was developed using **Java**, **Git**, and **GitHub**, with a focus
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 When the program starts, the player enters a **username**. The system then either:
 
@@ -44,7 +44,7 @@ The system supports **multiple players with separate saved profiles**.
 
 ---
 
-## 🎮 Games Included
+##  Games Included
 
 | No. | Game                        | Description                                               |
 | --- | --------------------------- | --------------------------------------------------------- |
@@ -55,7 +55,7 @@ The system supports **multiple players with separate saved profiles**.
 
 ---
 
-## 1️⃣ Dice Patterns Challenge
+## 1️ Dice Patterns Challenge
 
 ### Objective
 
@@ -91,7 +91,7 @@ Get the **highest possible score** by building the best pattern from **five dice
 
 ---
 
-## 2️⃣ Dice Grid Puzzle
+## 2️ Dice Grid Puzzle
 
 ### Objective
 
@@ -123,7 +123,7 @@ Fill a **3×3 grid** and earn the highest total score from all rows and columns.
 
 ---
 
-## 3️⃣ Dice Codebreaker
+##  Dice Codebreaker
 
 ### Objective
 
@@ -155,7 +155,7 @@ Guess the hidden **4-number code** in at most **10 attempts**.
 
 ---
 
-## 4️⃣ Dice Battle
+##  Dice Battle
 
 ### Objective
 
@@ -201,7 +201,7 @@ The computer uses simple logic:
 
 ---
 
-## 👤 Player Profiles and Statistics
+##  Player Profiles and Statistics
 
 The system includes a **persistent profile feature**.
 
@@ -231,7 +231,7 @@ Each player profile keeps track of:
 
 ---
 
-## 📊 View Player Stats Menu
+##  View Player Stats Menu
 
 ```text
 === View Player Stats ===
@@ -252,7 +252,7 @@ Each player profile keeps track of:
 
 ---
 
-## 🧩 Main Classes
+##  Main Classes
 
 | Class                      | Purpose                                                        |
 | -------------------------- | -------------------------------------------------------------- |
@@ -267,7 +267,7 @@ Each player profile keeps track of:
 
 ---
 
-## 💡 Key Programming Features
+##  Key Programming Features
 
 This project demonstrates:
 
@@ -282,7 +282,7 @@ This project demonstrates:
 
 ---
 
-## ▶️ How to Run the Program
+##  How to Run the Program
 
 1. Open the project in **IntelliJ IDEA** or another Java IDE
 2. Make sure all source files are in the **`src`** folder
@@ -292,7 +292,7 @@ This project demonstrates:
 
 ---
 
-## ✅ Conclusion
+##  Conclusion
 
 This Dice Game Project is a **multi-game Java console application** with:
 
@@ -300,7 +300,6 @@ This Dice Game Project is a **multi-game Java console application** with:
 * multiple user profiles
 * persistent saved data
 * statistics tracking across sessions
-
 
 
 Overall, the project demonstrates practical use of Java programming concepts such as **classes**, **methods**, **validation**, **random generation**, and **file handling**.
