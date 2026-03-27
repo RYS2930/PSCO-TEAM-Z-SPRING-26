@@ -191,14 +191,6 @@ Defeat the computer by reducing its HP to **0** before your own HP reaches **0**
 * Healing is applied after attack resolution
 * Defend status is cleared at the end of the round
 
-### Computer Behaviour
-
-The computer uses simple logic:
-
-* more likely to **heal** when HP is low
-* may **defend** when under pressure
-* otherwise, it usually **attacks**
-
 ---
 
 ##  Player Profiles and Statistics
@@ -262,16 +254,5 @@ Each player profile keeps track of:
 
 ---
 
-##  Conclusion
-
-This Dice Game Project is a **multi-game Java console application** with:
-
-* four playable mini games
-* multiple user profiles
-* persistent saved data
-* statistics tracking across sessions
-
-
-Overall, the project demonstrates practical use of Java programming concepts such as **classes**, **methods**, **validation**, **random generation**, and **file handling**.
 
 Sina, Harvey, Ege, Thai Son
