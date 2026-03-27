@@ -40,7 +40,7 @@ After login, the main menu is displayed.
 * **0** → Save user data and exit the current session
 * After exiting, another player can log in, or the user can type **-1** to fully close the program
 
-This means the system supports **multiple players with separate saved profiles**.
+The system supports **multiple players with separate saved profiles**.
 
 ---
 
@@ -249,7 +249,6 @@ Each player profile keeps track of:
 * **Dice Codebreaker** → best result, latest result, recent 10 outcomes
 * **Dice Battle** → wins, losses, recent 10 battle records
 
-This feature makes the project more complete because it tracks progress over time instead of only running games once.
 
 ---
 
@@ -302,7 +301,7 @@ This Dice Game Project is a **multi-game Java console application** with:
 * persistent saved data
 * statistics tracking across sessions
 
-Compared with a basic game menu, this version is more complete because it supports **player progress**, **history tracking**, and **data storage between runs**.
+
 
 Overall, the project demonstrates practical use of Java programming concepts such as **classes**, **methods**, **validation**, **random generation**, and **file handling**.
 
