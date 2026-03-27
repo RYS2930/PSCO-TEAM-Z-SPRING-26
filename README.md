@@ -252,36 +252,6 @@ Each player profile keeps track of:
 
 ---
 
-##  Main Classes
-
-| Class                      | Purpose                                                        |
-| -------------------------- | -------------------------------------------------------------- |
-| `Menu.java`                | Handles login, menu navigation, stats menu, and game launching |
-| `DicePatternGame.java`     | Contains the logic for Dice Patterns Challenge                 |
-| `DiceGridGame.java`        | Contains the logic for Dice Grid Puzzle                        |
-| `DiceCodebreakerGame.java` | Contains the logic for Dice Codebreaker                        |
-| `DiceBattle.java`          | Contains the battle game logic                                 |
-| `BattlePlayer.java`        | Represents a battle participant with HP and defend status      |
-| `UserProfile.java`         | Stores player statistics and game history                      |
-| `UserManager.java`         | Loads and saves player profiles using file storage             |
-
----
-
-##  Key Programming Features
-
-This project demonstrates:
-
-* object-oriented programming
-* menu-driven console interaction
-* reusable classes and methods
-* random number generation
-* input validation
-* arrays and collections
-* simple AI behaviour
-* file handling and persistence
-
----
-
 ##  How to Run the Program
 
 1. Open the project in **IntelliJ IDEA** or another Java IDE
