@@ -7,29 +7,33 @@ programming, game logic, input validation, persistent player statistics, and tea
 
 ---
 ## Main Menu Game
-When the program starts, a console-based menu is displayed:
+When the program starts, the player is asked to enter a username. The system then loads
+an existing profile or creates a new one.
+After that, the main menu is displayed: 
         
    === Dice Game Menu ===
-   1. Dice Patterns Challenge
-   2. Dice Grid Puzzle
-   3. Dice Codebreaker
-   4. Dice Battle
-   5. Exit
-   Choose:
+1. Dice Patterns Challenge
+2. Dice Grid Puzzle
+3. Dice Codebreaker
+4. Dice Battle
+5. View Player Stats
+0. Exit
 
-How It Works
-The user enters a number (1-5).
-The system launches the selected game.
-After the game ends, control returns to the main menu.
-The program runs in a loop until the user selects 5 (Exit).
+How the Menu Works
+The user enters a number from 0 to 5.
+Options 1–4 launch one of the four games.
+Option 5 opens the player statistics menu.
+Option 0 saves the current user data.
+After exiting, the program allows another username to log in, or the user can type -1 to quit the program completely.
+This means the system supports multiple players using separate saved profiles.
 
 ---
 
 ## 🎮 Games Included
 
 ### 1. Dice Patterns Challenge
-A pattern-based dice game where players roll five dice and score points based on
-patterns such as pairs, full houses, and straights.
+A pattern-based dice scoring game where the player rolls five dice and may reroll
+selected dice to achieve the best final pattern.
 
 ### 2. Dice Grid Puzzle
 Players place dice rolls into a 3×3 grid and score points based on combinations formed
