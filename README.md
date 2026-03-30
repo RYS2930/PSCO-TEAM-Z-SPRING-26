@@ -35,7 +35,10 @@ After login, the main menu is displayed.
 
 ### Menu Behaviour
 
-* **1–4** → Start one of the four games
+* **1** → Start Dice Patterns Challenge
+* **2** → Start Dice Grid Puzzle
+* **3** → Start Dice Codebreaker
+* **4** → Start Dice Battle
 * **5** → Open the player statistics menu
 * **0** → Save user data and exit the current session
 * After exiting, another player can log in, or the user can type **-1** to fully close the program
@@ -55,7 +58,7 @@ The system supports **multiple players with separate saved profiles**.
 
 ---
 
-## 1️ Dice Patterns Challenge
+## 1️. Dice Patterns Challenge
 
 ### Objective
 
@@ -91,7 +94,7 @@ Get the **highest possible score** by building the best pattern from **five dice
 
 ---
 
-## 2️ Dice Grid Puzzle
+## 2️. Dice Grid Puzzle
 
 ### Objective
 
@@ -123,7 +126,7 @@ Fill a **3×3 grid** and earn the highest total score from all rows and columns.
 
 ---
 
-##  Dice Codebreaker
+## 3. Dice Codebreaker
 
 ### Objective
 
@@ -155,7 +158,7 @@ Guess the hidden **4-number code** in at most **10 attempts**.
 
 ---
 
-##  Dice Battle
+## 4. Dice Battle
 
 ### Objective
 
