@@ -1,4 +1,4 @@
-#  Dice Game Project (Java)
+#  Dice Game Project
 
 A Java console-based mini game system that includes **four dice games**, **persistent player profiles**, and **statistics tracking**.
 
