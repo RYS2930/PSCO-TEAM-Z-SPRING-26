@@ -1,14 +1,10 @@
-#  Dice Game Project
+#  Dice Game Project (Java)
 
-A Java console-based mini game system that includes **four dice games**, **persistent player profiles**, and **statistics tracking**.
+This project is a Java console-based dice game application
 
-This project was developed using **Java**, **Git**, and **GitHub**, with a focus on:
+The application consists of four dice-based mini-games designed to practise core programming concepts such as control flow, data structures, algorithms, and object-oriented design.
 
-* Object-oriented programming
-* Input validation
-* Random game logic
-* File handling
-* Reusable class design
+The game system that includes four dice games, and statistics tracking.
 
 ---
 
@@ -51,10 +47,10 @@ The system supports **multiple players with separate saved profiles**.
 
 | No. | Game                        | Description                                               |
 | --- | --------------------------- | --------------------------------------------------------- |
-| 1   | **Dice Patterns Challenge** | Roll and reroll dice to create the best scoring pattern   |
-| 2   | **Dice Grid Puzzle**        | Place dice into a 3×3 grid and score rows and columns     |
-| 3   | **Dice Codebreaker**        | Guess a secret 4-number code within limited attempts      |
-| 4   | **Dice Battle**             | Fight the computer using attack, defend, and heal actions |
+| 1   | **Dice Patterns Challenge** | A pattern-based dice game where players roll five dice and score points based on patterns such as pairs, full houses, and straights. |
+| 2   | **Dice Grid Puzzle**        | Players place dice rolls into a 3×3 grid and score points based on combinations formed in rows and columns.     |
+| 3   | **Dice Codebreaker**        | A logic-based guessing game where players attempt to crack a secret four-dice code. Feedback is provided after each guess to guide the player.      |
+| 4   | **Dice Battle**             | A round-based dice combat game where the player battles a computer-controlled opponent using attack, defend, and heal actions. |
 
 ---
 
@@ -179,7 +175,9 @@ Defeat the computer by reducing its HP to **0** before your own HP reaches **0**
 
 #### Defend
 
-* Reduces incoming damage by **50%** for that round
+- Applies immediately within the same round.
+- All incoming damage during that round is reduced by **50%**.
+- Defend mitigates damage but does not prevent it.
 
 #### Heal
 
@@ -249,7 +247,7 @@ Each player profile keeps track of:
 
 ##  How to Run the Program
 
-1. Open the project in **IntelliJ IDEA** or another Java IDE
+1. Open the project in any Java IDE
 2. Make sure all source files are in the **`src`** folder
 3. Run **`Menu.java`**
 4. Enter a username
